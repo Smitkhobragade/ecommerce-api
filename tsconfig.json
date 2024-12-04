@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    /* Language Options */
+    "target": "ES6",                     // Sets the JavaScript version to emit
+    "module": "CommonJS",                // Node.js uses CommonJS modules
+    "lib": ["ES6", "DOM"],               // Includes ES6 and DOM libraries
+
+    /* Output Directory */
+    "outDir": "./dist",                  // Compiled files go to 'dist'
+    "rootDir": "./src",                  // Root of the source files
+
+    /* Strict Type-Checking Options */
+    "strict": true,                      // Enables all strict type-checking options
+    "strictNullChecks": true,            // Better handling of null/undefined values
+    "strictPropertyInitialization": true, // Ensures properties are initialized
+
+    /* Module and Interop */
+    "esModuleInterop": true,             // Allows default import of CommonJS modules
+    "resolveJsonModule": true,           // Enables importing .json files as modules
+
+    /* Experimental Features */
+    "experimentalDecorators": true,      // Enables decorators (required by TypeORM)
+    "emitDecoratorMetadata": true,       // Enables emitting metadata for decorators
+
+    /* Debugging Options */
+    "sourceMap": true,                   // Generates source maps for debugging
+    "incremental": true,                 // Speeds up builds by reusing previous builds
+    "skipLibCheck": true                 // Skips type-checking for imported libraries
+  },
+  "exclude": ["node_modules", "dist"]     // Exclude folders to avoid unnecessary compilation
+}

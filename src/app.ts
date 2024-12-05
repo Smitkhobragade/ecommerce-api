@@ -4,7 +4,8 @@ import cors from "cors";
 import morgan from "morgan";
 import { connectDB } from "./utils/database";
 import userRoutes from "./routes/UserRoutes"
-import productRoutes from "./routes/productRoutes"
+import productRoutes from "./routes/ProductRoutes"
+import orderRoutes from "./routes/OrderRoutes"
 const app: Application = express();
 
 // Middleware
@@ -16,6 +17,7 @@ app.use(morgan("dev"));
 
 app.use("/users", userRoutes);
 app.use("/products", productRoutes);
+app.use("/orders", orderRoutes);
 
 // Sample Routes (placeholder)
 app.get("/", (req: Request, res: Response) => {

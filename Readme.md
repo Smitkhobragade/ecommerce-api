@@ -15,8 +15,8 @@ This is a simple E-commerce API built with **Node.js**, **Express**, **TypeORM**
 ## Requirements
 
 - Node.js
-- MySQL (or any compatible database, with TypeORM configured)
-- Postman (for testing the API endpoints)
+- MySQL 
+- Postman 
 
 ## Installation
 
@@ -53,11 +53,18 @@ You can use **Postman** or any other API testing tool to test the API endpoints.
 
 ## API Endpoints
 
+Certainly! Based on the provided code, here's the updated section of your README file that reflects the correct API routes for the application:
+
+---
+
+## API Endpoints
+
 ### **User Routes**
 
 - `POST /users` - Create a new user
 - `GET /users` - Get all users
 - `GET /users/:id` - Get a specific user by ID
+- `GET /users/:id/orders` - Get all orders placed by a specific user
 - `PUT /users/:id` - Update a specific user by ID
 
 ### **Product Routes**
@@ -66,6 +73,7 @@ You can use **Postman** or any other API testing tool to test the API endpoints.
 - `GET /products` - Get all products
 - `GET /products/:id` - Get a specific product by ID
 - `PUT /products/:id` - Update a specific product by ID
+- `GET /products/:id/users` - Get users who bought a specific product
 - `GET /products/total-stock` - Get the total stock quantity for all products combined
 
 ### **Order Routes**
@@ -73,9 +81,8 @@ You can use **Postman** or any other API testing tool to test the API endpoints.
 - `POST /orders` - Create a new order
 - `GET /orders` - Get all orders
 - `GET /orders/:id` - Get a specific order by ID
+- `GET /orders/last7days` - Get orders placed in the last 7 days
 - `PUT /orders/:id` - Update a specific order by ID
-- `GET /orders/last-7-days` - Get orders placed in the last 7 days
-- `GET /orders/users/:productId` - Get users who bought a specific product
 
 ---
 
@@ -87,28 +94,28 @@ Here’s the general file structure of the project:
 ecommerce-api/
 │
 ├── src/
-│   ├── app.ts                  # Main application file (Server entry point)
-│   ├── controllers/            # Controllers for handling API logic
-│   │   ├── UserController.ts   # User-related logic
-│   │   ├── ProductController.ts # Product-related logic
-│   │   └── OrderController.ts  # Order-related logic
-│   ├── entities/               # TypeORM entity models (User, Product, Order)
-│   │   ├── User.ts             # User entity
-│   │   ├── Product.ts          # Product entity
-│   │   └── Order.ts            # Order entity
-│   ├── routes/                 # Route definitions for API endpoints
-│   │   ├── UserRoutes.ts       # Routes for User-related endpoints
-│   │   ├── ProductRoutes.ts    # Routes for Product-related endpoints
-│   │   └── OrderRoutes.ts      # Routes for Order-related endpoints
-│   ├── utils/                  # Utility functions and database connection
-│   │   └── database.ts         # TypeORM database connection setup
-│   └── config/                 # Configuration files (for environment variables, etc.)
-│       └── .env                # Environment variables (e.g., DB connection)
+│   ├── app.ts                  
+│   ├── controllers/            
+│   │   ├── UserController.ts   
+│   │   ├── ProductController.ts 
+│   │   └── OrderController.ts 
+│   ├── entities/               
+│   │   ├── User.ts             
+│   │   ├── Product.ts          
+│   │   └── Order.ts            
+│   ├── routes/                 
+│   │   ├── UserRoutes.ts       
+│   │   ├── ProductRoutes.ts    
+│   │   └── OrderRoutes.ts      
+│   ├── utils/                  
+│   │   └── database.ts         
+│   └── config/                
+│       └── .env                
 │
-├── package.json                # Project dependencies and scripts
-├── tsconfig.json               # TypeScript configuration
-├── .env                        # Environment file for secrets/configuration
-└── README.md                   # This README file
+├── package.json                
+├── tsconfig.json               
+├── .env                        
+└── README.md                   
 ```
 
 ---

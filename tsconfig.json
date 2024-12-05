@@ -17,6 +17,7 @@
     /* Module and Interop */
     "esModuleInterop": true,             // Allows default import of CommonJS modules
     "resolveJsonModule": true,           // Enables importing .json files as modules
+    "moduleResolution": "node",          // Ensures proper module resolution in Node.js
 
     /* Experimental Features */
     "experimentalDecorators": true,      // Enables decorators (required by TypeORM)
@@ -25,7 +26,10 @@
     /* Debugging Options */
     "sourceMap": true,                   // Generates source maps for debugging
     "incremental": true,                 // Speeds up builds by reusing previous builds
-    "skipLibCheck": true                 // Skips type-checking for imported libraries
+    "skipLibCheck": true,                // Skips type-checking for imported libraries
+
+    /* Include Types for Express and Node */
+    "types": ["node", "express"]         // Explicitly include node and express types
   },
   "exclude": ["node_modules", "dist"]     // Exclude folders to avoid unnecessary compilation
 }

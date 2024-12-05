@@ -97,4 +97,18 @@ export default class ProductController {
     }
   }
 
+  static async getTotalStockQuantity(req: Request, res: Response): Promise<any> {
+    try {
+      const products = await productRepository.find();
+
+      const totalStockQuantity = products.reduce((total, product) => total + product.stockQuantity, 0);
+
+      return res.json({ totalStockQuantity });
+    } catch (error) {
+      return res.status(500).json({
+        message: error instanceof Error ? error.message : "An unknown error occurred",
+      });
+    }
+  }
+
 }

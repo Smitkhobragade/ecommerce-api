@@ -6,6 +6,7 @@ const router = Router();
 router.post("/", ProductController.createProduct); 
 router.get("/", ProductController.getAllProducts);
 router.get("/:id/users", ProductController.getUsersByProduct);
+router.get("/total-stock", ProductController.getTotalStockQuantity);
 router.get("/:id", ProductController.getProductById); 
 router.put("/:id", ProductController.updateProduct); 
 

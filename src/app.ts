@@ -4,7 +4,7 @@ import cors from "cors";
 import morgan from "morgan";
 import { connectDB } from "./utils/database";
 import userRoutes from "./routes/UserRoutes"
-import productRoutes from "./routes/ProductRoutes"
+import productRoutes from "./routes/productRoutes"
 import orderRoutes from "./routes/OrderRoutes"
 const app: Application = express();
 

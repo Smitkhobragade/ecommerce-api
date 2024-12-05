@@ -3,6 +3,7 @@ import { AppDataSource } from "../utils/database";
 import { Order } from "../entities/Order";
 import { User } from "../entities/User";
 import { Product } from "../entities/Product";
+import { Between } from "typeorm";
 
 const orderRepository = AppDataSource.getRepository(Order);
 const userRepository = AppDataSource.getRepository(User);
@@ -128,6 +129,35 @@ export default class OrderController {
       return res
         .status(500)
         .json({ message: error instanceof Error ? error.message : "An unknown error occurred" });
+    }
+  }
+  
+  static async getOrdersLast7Days(req: Request, res: Response): Promise<any> {
+    console.log("getOrdersLast7Days function is called");
+    try {
+      const today = new Date();
+      const sevenDaysAgo = new Date(today);
+      sevenDaysAgo.setDate(today.getDate() - 7); // Subtract 7 days from today's date
+      
+      console.log("Today: ", today);
+      console.log("7 Days Ago: ", sevenDaysAgo);
+  
+      if (isNaN(today.getTime()) || isNaN(sevenDaysAgo.getTime())) {
+        return res.status(400).json({ message: "Invalid date values" });
+      }
+  
+      const orders = await orderRepository.find({
+        where: {
+          orderDate: Between(sevenDaysAgo, today),
+        },
+        relations: ["user", "product"],
+      });
+  
+      return res.json(orders);
+    } catch (error) {
+      return res.status(500).json({
+        message: error instanceof Error ? error.message : "An unknown error occurred",
+      });
     }
   }
   

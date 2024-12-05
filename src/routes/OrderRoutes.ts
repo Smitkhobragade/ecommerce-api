@@ -3,9 +3,9 @@ import OrderController from "../controllers/OrderController";
 
 const router = Router();
 
-router.post("/", OrderController.createOrder); // Create a new order
-router.get("/", OrderController.getAllOrders); // Get all orders
-router.get("/:id", OrderController.getOrderById); // Get order by ID
-router.put("/:id", OrderController.editOrder); // Edit an existing order
-
+router.post("/", OrderController.createOrder); 
+router.get("/", OrderController.getAllOrders); 
+router.get("/last7days", OrderController.getOrdersLast7Days);
+router.get("/:id", OrderController.getOrderById); 
+router.put("/:id", OrderController.editOrder); 
 export default router;
